@@ -95,6 +95,7 @@ int main() {
 
     // 到Cpu 核心数目
     cpu_num = sysconf(_SC_NPROCESSORS_CONF) * 1;
+    //printf("cpu_num: %d\n", cpu_num);
     
     // 生成管理通道
     for (int i = 1; i < cpu_num; ++i) {
@@ -103,6 +104,7 @@ int main() {
         ev.events = EPOLLIN | EPOLLET;
         ev.data.fd = sv[i][0];
         set_noblock(sv[i][0]);
+        printf("sv[%d][0]: %d\n", i, sv[i][0]);
  
         gFdProcess[sv[i][0]]->m_writefun = accept_readfun;
         if (epoll_ctl(epollfd, EPOLL_CTL_ADD, sv[i][0], &ev) == -1) {
@@ -112,7 +114,7 @@ int main() {
      }
 
     for (int i = 1; i < cpu_num; ++i) {
-        Log << " cpu " << i << "  " << sv[i][0] << "  " << sv[i][1]
+        Log << " cpu" << i << "  " << sv[i][0] << "  " << sv[i][1]
             << std::endl;
     }
 

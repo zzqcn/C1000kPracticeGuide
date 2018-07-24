@@ -3,6 +3,7 @@
 
 #include "timers.h"
 
+std::string listenhost = "127.0.0.1";
 int listenport = 8888;
 
 pthread_t t_all[MAX_CPU] = {0};
@@ -43,11 +44,12 @@ int main(int argc, char *argv[]) {
         gFdProcess[i] = p;
     }
     for (int i = 0; i < num; ++i) {
-        int fd = Simconnect("172.16.31.208", listenport);
+        int fd = Simconnect(listenhost, listenport);
 
         if (fd < 0) {
             // exit(-3);
-            continue;
+            //continue;
+            break;
         }
 
         add_epoll(epollfd, fd);
