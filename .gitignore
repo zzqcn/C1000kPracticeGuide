@@ -1,0 +1,57 @@
+
+Server
+.ycm_extra_conf.py
+.ycm_extra_conf.pyc
+*.swp
+*.bak
+*.db
+*.pcap
+*.cap
+doc/build
+doc/_build
+build
+demo/demo
+test/test
+test/unitest
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+
+
+# 例外
+!dpi/dyn_core_mips.o
+!dpi/dyn_core_x86_64.o
+!3rd/crypt
+!3rd/hyperscan/lib/libhs*
+!3rd/splic/lib/lib*
+!3rd/zre/libzre*
